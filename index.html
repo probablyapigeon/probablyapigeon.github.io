@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kiersten Lynd builds inspectable experiments, adaptive agents, and mathematical instruments through XEMBRA and XC.">
+  <meta name="theme-color" content="#07090d">
+  <title>Kiersten Lynd — XEMBRA, XC & living systems</title>
+  <link rel="preconnect" href="https://avatars.githubusercontent.com">
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Kiersten Lynd, home">
+      <span class="wordmark-mark" aria-hidden="true">K</span>
+      <span>Kiersten Lynd</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#lab">Live lab</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="header-github" href="https://github.com/probablyapigeon" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="signal" aria-hidden="true"></span> Independent systems researcher · creative technologist</p>
+        <h1 id="hero-title">I follow strange questions until they become <em>math,</em> <em>code,</em> and things you can touch.</h1>
+        <p class="hero-intro">I’m Kiersten—also <strong>probablyapigeon</strong>. I build inspectable experiments about memory, order, adaptation, agency, and meaning. My work lives between dynamical systems, experimental software, and luminous mathematical art.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore the projects <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="mailto:kierstenlynd@gmail.com">Say hello</a>
+        </div>
+        <dl class="mini-stats" aria-label="Research principles">
+          <div><dt>01</dt><dd>Make state explicit</dd></div>
+          <div><dt>02</dt><dd>Test order effects</dd></div>
+          <div><dt>03</dt><dd>Keep claims falsifiable</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-instrument" aria-label="Interactive operator field">
+        <div class="instrument-bar">
+          <div>
+            <span class="micro-label">ILLUSTRATIVE STUDY / 01</span>
+            <strong>Non-commutative field</strong>
+          </div>
+          <button class="icon-button" id="field-reset" type="button" aria-label="Reset field">↻</button>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="operator-field" aria-label="Animated particles showing how operator order changes a state trajectory"></canvas>
+          <div class="equation" aria-hidden="true">
+            <span>Illustrative order response</span>
+            <b id="commutator-value">0.62</b>
+          </div>
+          <div class="axis-label x-label" aria-hidden="true">memory →</div>
+          <div class="axis-label y-label" aria-hidden="true">entropy →</div>
+        </div>
+        <div class="instrument-controls">
+          <fieldset>
+            <legend>Operator order</legend>
+            <div class="segmented">
+              <button type="button" class="order-button is-active" data-order="FV" aria-pressed="true">F → V</button>
+              <button type="button" class="order-button" data-order="VF" aria-pressed="false">V → F</button>
+            </div>
+          </fieldset>
+          <label class="range-control" for="entropy">
+            <span>Entropy <output id="entropy-output" for="entropy">0.38</output></span>
+            <input id="entropy" type="range" min="0" max="1" value="0.38" step="0.01">
+          </label>
+          <label class="range-control" for="memory">
+            <span>Memory <output id="memory-output" for="memory">0.66</output></span>
+            <input id="memory" type="range" min="0" max="1" value="0.66" step="0.01">
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Areas of inquiry">
+      <div class="ticker-track">
+        <span>NON-COMMUTATIVITY</span><i>✦</i><span>MEMORY</span><i>✦</i><span>SEMANTIC COMPRESSION</span><i>✦</i><span>DYNAMICAL SYSTEMS</span><i>✦</i><span>INTERPRETABLE AGENTS</span><i>✦</i><span>GENERATIVE ART</span>
+      </div>
+    </section>
+
+    <section class="section projects" id="work" aria-labelledby="work-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">SELECTED WORK / CURRENTLY ALIVE</p><h2 id="work-title">Projects that turn questions into instruments.</h2></div>
+        <p>Each project is a different window into the same obsession: how does history change what a system can become next?</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card project-featured">
+          <div class="card-top"><span class="status"><i></i> Active research</span><span class="card-index">01</span></div>
+          <div class="project-symbol" aria-hidden="true">Ψ<sub>t+1</sub></div>
+          <div>
+            <p class="project-type">Framework · Simulation · Research</p>
+            <h3>XEMBRA / OBAE-R</h3>
+            <p>An operator-based framework for studying history-dependent adaptive systems—where persona, volition, projection, and memory are explicit transforms whose order can change the outcome.</p>
+          </div>
+          <div class="card-footer">
+            <div class="tags"><span>Python</span><span>Dynamical systems</span><span>Falsification</span></div>
+            <a href="https://github.com/probablyapigeon/fullxembra" target="_blank" rel="noreferrer" aria-label="View XEMBRA on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-top"><span class="status status-cyan"><i></i> Language prototype</span><span class="card-index">02</span></div>
+          <div class="project-symbol symbol-xc" aria-hidden="true">.xc</div>
+          <div>
+            <p class="project-type">Language design · Tooling</p>
+            <h3>XC — XEMBRA Code</h3>
+            <p>A small experimental language for describing typed state, ordered operators, memory, experiments, and traces without burying the model inside general-purpose code.</p>
+          </div>
+          <div class="card-footer">
+            <div class="tags"><span>DSL</span><span>Parser</span><span>Traceability</span></div>
+            <a href="examples/order_field.xc" aria-label="Read an XC example">Read XC example <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-top"><span class="status status-violet"><i></i> Working prototype</span><span class="card-index">03</span></div>
+          <div class="project-symbol symbol-lumina" aria-hidden="true">◉</div>
+          <div>
+            <p class="project-type">Visual instrument · Local AI</p>
+            <h3>LUMINA</h3>
+            <p>A local-first visual instrument that maps model state to color, motion, geometry, trails, and sound—making invisible mathematics something you can watch change in real time.</p>
+          </div>
+          <div class="card-footer">
+            <div class="tags"><span>PySide6</span><span>VisPy</span><span>Ollama</span></div>
+            <a href="https://github.com/probablyapigeon/fluffy-xembra" target="_blank" rel="noreferrer" aria-label="View the XEMBRA visual prototype on GitHub">View prototype <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="project-card project-dark">
+          <div class="card-top"><span class="status status-lime"><i></i> Test scaffold</span><span class="card-index">04</span></div>
+          <div class="project-symbol symbol-test" aria-hidden="true">≋</div>
+          <div>
+            <p class="project-type">Cross-runtime testing · Semantics</p>
+            <h3>XC Interlingua Tests</h3>
+            <p>A test program asking whether one XC model can preserve meaning across multiple deterministic backends—comparing traces, invariants, and known expressiveness boundaries.</p>
+          </div>
+          <div class="card-footer">
+            <div class="tags"><span>Multi-backend</span><span>Oracles</span><span>Equivalence</span></div>
+            <a href="https://github.com/probablyapigeon/xc-interlingua-tests" target="_blank" rel="noreferrer" aria-label="View XC Interlingua Tests on GitHub">View tests <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section lab" id="lab" aria-labelledby="lab-title">
+      <div class="lab-copy">
+        <p class="eyebrow">OPEN THE HOOD / LIVE STUDY</p>
+        <h2 id="lab-title">The same present can carry a different past.</h2>
+        <p>Run two operator paths from the same starting state. The traces converge near the center, but memory changes how each path responds to the next perturbation. This is an illustrative JavaScript animation of the idea. Its paths and readouts are illustrative, not measured XC execution or research results.</p>
+        <div class="lab-readout" aria-live="polite">
+          <div><span>Path divergence</span><strong id="divergence-readout">0.000</strong></div>
+          <div><span>Future response Δ</span><strong id="response-readout">0.000</strong></div>
+        </div>
+        <button class="button button-primary" id="run-experiment" type="button">Run the paths <span aria-hidden="true">→</span></button>
+      </div>
+
+      <div class="code-window">
+        <div class="code-titlebar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>order_field.xc</span><button id="copy-code" type="button">Copy</button></div>
+        <pre><code id="xc-code"><span class="token-comment"># XC 0.1 — order is part of the model</span>
+<span class="token-key">model</span> OrderField {
+  <span class="token-key">seed</span> <span class="token-number">17701</span>
+  <span class="token-key">state</span> z: <span class="token-type">vector[2]</span> = [<span class="token-number">0.12</span>, <span class="token-number">0.34</span>]
+  <span class="token-key">memory</span> trace: <span class="token-type">vector[32]</span> decay=<span class="token-number">0.92</span>
+
+  <span class="token-key">operator</span> F(x) { <span class="token-key">return</span> rotate(x, <span class="token-number">0.42</span>) }
+  <span class="token-key">operator</span> V(x) { <span class="token-key">return</span> tanh(x + [<span class="token-number">.18</span>, <span class="token-number">-.08</span>]) }
+
+  <span class="token-key">pipeline</span> FV { F -&gt; V }
+  <span class="token-key">pipeline</span> VF { V -&gt; F }
+
+  <span class="token-key">metric</span> order_effect = norm(FV(z) - VF(z))
+  <span class="token-key">trace</span> { z, trace, order_effect }
+}</code></pre>
+        <div class="code-note"><span>MODEL</span> XC design example. The browser animation is implemented separately in JavaScript. <a href="examples/order_field.xc">Open the complete .xc file ↗</a></div>
+      </div>
+    </section>
+
+    <section class="path-stage" aria-label="Animated comparison of FV and VF paths">
+      <canvas id="path-canvas"></canvas>
+      <div class="path-legend"><span><i class="line-pink"></i> F → V</span><span><i class="line-cyan"></i> V → F</span><span><i class="dot-white"></i> shared present</span></div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="portrait-wrap">
+        <div class="portrait-halo" aria-hidden="true"></div>
+        <img src="https://avatars.githubusercontent.com/u/292943613?v=4" alt="Kiersten Lynd's GitHub avatar" width="460" height="460">
+        <span class="portrait-caption">probablyapigeon / curious by default</span>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">ABOUT THE HUMAN / HELLO</p>
+        <h2 id="about-title">My process begins with “wait… is that actually true?”</h2>
+        <p class="about-lead">Then I turn the question into math, turn the math into a simulation, attack the simulation, and keep whatever survives.</p>
+        <p>I’m a self-directed researcher and builder working across computational models of agency, language design, local AI, interactive art, and the philosophy of complex systems. I care about making ambitious ideas inspectable—especially when they begin as intuition.</p>
+        <blockquote>Curiosity is the engine. Falsification is the steering wheel. The weird glowing visuals are non-negotiable.</blockquote>
+        <div class="principles">
+          <div><span>01</span><p><strong>Show the machinery.</strong> State, memory, operators, and assumptions belong where people can inspect them.</p></div>
+          <div><span>02</span><p><strong>Name the boundary.</strong> A simulation can demonstrate its own math without proving a claim about nature.</p></div>
+          <div><span>03</span><p><strong>Keep the wonder.</strong> Rigor should sharpen imagination, not flatten it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">LET’S MAKE THE INVISIBLE LEGIBLE</p>
+      <h2 id="closing-title">Got a strange system, a hard question, or a beautiful mess?</h2>
+      <div class="closing-actions">
+        <a class="button button-light" href="mailto:kierstenlynd@gmail.com">kierstenlynd@gmail.com <span aria-hidden="true">↗</span></a>
+        <a class="button button-outline-light" href="https://github.com/probablyapigeon" target="_blank" rel="noreferrer">@probablyapigeon</a>
+      </div>
+      <div class="closing-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Kiersten Lynd</p>
+    <p>Built as an inspectable system, naturally.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+  <script src="portfolio.js"></script>
+</body>
+</html>
