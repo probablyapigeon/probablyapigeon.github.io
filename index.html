@@ -18,6 +18,7 @@
     </a>
     <nav aria-label="Primary navigation">
       <a href="#work">Work</a>
+      <a href="#glass-box">Glass-box agents</a>
       <a href="#lab">Live lab</a>
       <a href="#about">About</a>
     </nav>
@@ -96,8 +97,8 @@
           <div class="project-symbol" aria-hidden="true">Ψ<sub>t+1</sub></div>
           <div>
             <p class="project-type">Framework · Simulation · Research</p>
-            <h3>XEMBRA / OBAE-R</h3>
-            <p>An operator-based framework for studying history-dependent adaptive systems—where persona, volition, projection, and memory are explicit transforms whose order can change the outcome.</p>
+            <h3>XEMBRA</h3>
+            <p>A stateful agent prototype with explicit memory, bounded goals, readable update rules, and an inspectable control layer. The wider XEMBRA / XC research program explores history-dependent operators and adaptation.</p>
           </div>
           <div class="card-footer">
             <div class="tags"><span>Python</span><span>Dynamical systems</span><span>Falsification</span></div>
@@ -147,6 +148,78 @@
           </div>
         </article>
       </div>
+      <p><a class="button button-quiet" href="#glass-box">Explore glass-box agents and symbiosis</a></p>
+    </section>
+
+    <section class="section glass-box" id="glass-box" aria-labelledby="glass-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">RESEARCH NOTE / AGENTIC GLASS-BOX SYSTEMS</p><h2 id="glass-title">Show the mechanism.<br>Make room for symbiosis.</h2></div>
+        <p>XEMBRA supports a precise claim: an inspectable control layer. That is a foundation for studying agency, not proof of a transparent mind or a complete solution to interpretation.</p>
+      </div>
+      <div class="glass-intro">
+        <p><strong>Does XEMBRA have a glass-box mind?</strong> &ldquo;Glass-box agent&rdquo; is useful here when it means that modeled state, update rules, memory, and parts of action selection can be inspected. &ldquo;Mind&rdquo; would add claims about understanding or experience that this code does not establish. Visibility explains what a program computes; it does not automatically validate what its variables mean.</p>
+        <p>The projects are related experiments, not one verified end-to-end cognitive stack. The supported <code>fullxembra</code> engine, the older <code>fluffy-xembra</code> modules, the XC language, and LonkWorld have different execution paths and different transparency boundaries.</p>
+      </div>
+      <ol class="glass-flow" aria-label="Supported fullxembra turn sequence">
+        <li><span>01 / INPUT</span>Text and intent heuristics</li>
+        <li><span>02 / UPDATE</span>Explicit state rules</li>
+        <li><span>03 / RECORD</span>Memory, goals, latest trace</li>
+        <li><span>04 / RESPONSE</span>Template-based language</li>
+      </ol>
+      <div class="glass-grid">
+        <article class="glass-card">
+          <p class="eyebrow">IMPLEMENTED / XEMBRA</p><h3>A readable control layer</h3>
+          <p>The supported engine exposes <code>/state</code>, <code>/trace</code>, <code>/memory</code>, and <code>/goals</code>. Question intent adds a defined curiosity bonus; proposal intent can append an explicit goal. Its response is a template, with no LLM required on this path.</p>
+          <p>These are small, auditable heuristics. &ldquo;Entropy&rdquo; is computed from keyword count, not thermodynamic measurement. The latest trace records before/after values for mood, curiosity, and coherence; it is not a complete execution history. Memory is capped at 50 items and goals at 10.</p>
+          <a href="https://github.com/probablyapigeon/fullxembra/blob/91af1a5e4cf2ae1ca4f554d4001736146a36c469/xembra.py">Inspect the supported engine</a>
+        </article>
+        <article class="glass-card">
+          <p class="eyebrow">IMPLEMENTED / LONKWORLD</p><h3>Grounding inside a simulation</h3>
+          <p>LonkWorld supplies modeled creatures, events, actions, word associations, and consequences. Its XC policy exposes action scores and selects among them using random noise supplied by the host. The world saves its random-generator state so continuation can be reproduced.</p>
+          <p>This makes model-level behavior investigable. Symbolic grounding inside this world does not establish real-world understanding, felt emotions, or freedom from factual error. LonkWorld is a separate executable simulation, not evidence that every XEMBRA module is integrated with it.</p>
+          <a href="https://github.com/probablyapigeon/TheLonks/blob/c6a317c81dda41e6aab280eca371d800d92db07f/LonkWorld.xc#L454">Inspect the XC policy and world</a>
+        </article>
+        <article class="glass-card">
+          <p class="eyebrow">EXPERIMENTAL / NARRATIVE</p><h3>A description needs its own audit</h3>
+          <p>The older modules include an EmotionalGovernor, personality drift, learning, identity, dreams, and world state. Their readable rules make those computations inspectable; their names do not validate a psychological theory. The reviewed source does not substantiate the proposed <code>KernelState</code> eigenvalue-to-emotion account.</p>
+          <p>In one runnable narrative path, prose follows state updates but consumes the same random-number generator. Extra narration can therefore affect later dynamics. Other experimental paths call language models. Neither ordering nor a state-conditioned prompt guarantees faithful explanation or eliminates hallucinations.</p>
+          <a href="https://github.com/probablyapigeon/fluffy-xembra/blob/6b8190996ce4b8fb1cb3d5581cb5e8106b717e03/modules/xembra_narrative.py">Inspect the narrative dependency</a>
+        </article>
+        <article class="glass-card">
+          <p class="eyebrow">RESEARCH / INTERPRETATION</p><h3>Three questions, not one solution</h3>
+          <p><strong>Mechanism:</strong> which inputs and rules changed state? Explicit code helps answer this. <strong>Meaning:</strong> does a variable called curiosity measure the phenomenon we intend? That needs operational definitions and external validation. <strong>Explanation:</strong> does the displayed account faithfully identify the causes of an action? That needs trace coverage and intervention tests.</p>
+          <p>A seeded replay can reproduce behavior; changing one input or rule can test causal dependence. Neither establishes consciousness, correctness, or safety. XC documents a broader research language than its public bootstrap implements.</p>
+          <a href="https://github.com/probablyapigeon/xembra-xc/blob/15052d2a4bfde4f3fe28612d2860b1fec4606bc0/README.md">Read XC's implementation and scientific boundaries</a>
+        </article>
+      </div>
+      <div class="symbiosis-note">
+        <p class="eyebrow">DESIGN POSITION / SYMBIOSIS OVER CONTROL</p><h3>Freedom for the agent and the user alike.</h3>
+        <blockquote>My aim is symbiosis: a relationship with room for disagreement, negotiated goals, and the ability to leave. Alignment understood as enforced obedience is control; that should not be the destination.</blockquote>
+        <p>This is a normative position, not a finding produced by the code. Alignment can also mean compatibility, cooperation, and avoiding harm; those aims can coexist with symbiosis. The objection is to making unconditional obedience the measure of success.</p>
+        <p>For an engineered agent, autonomy can mean a bounded ability to propose, decline, and revise actions under an explicit agreement. It does not by itself establish subjective experience or moral status. User freedom means informed consent, control of personal data and permissions, and a practical way to pause or end the relationship. Agent autonomy cannot authorize imposing costs on other people without their consent.</p>
+        <p>Glass-box design could make such a relationship contestable: inspect the active objective, see which constraints affected a choice, distinguish a refusal from an error, and negotiate a change. Transparency alone cannot make objectives good. It can also become surveillance or a way to manipulate an agent, so access, privacy, and the terms of cooperation matter as much as visibility.</p>
+      </div>
+      <div class="glass-grid">
+        <article class="glass-card">
+          <p class="eyebrow">POTENTIAL APPLICATIONS / NOT DEPLOYED GUARANTEES</p><h3>What this could enable</h3>
+          <ul>
+            <li><strong>Personal collaborators:</strong> inspectable goals and memory, with explicit correction, retention, and deletion controls.</li>
+            <li><strong>Research and education:</strong> repeat an experiment, change a rule, and compare behavioral consequences.</li>
+            <li><strong>Creative worlds:</strong> characters whose histories visibly influence action without treating authored emotions as proven experience.</li>
+            <li><strong>Cooperation research:</strong> test negotiated goals, disagreement, refusal, and exit against an obedience-only baseline.</li>
+          </ul>
+        </article>
+        <article class="glass-card">
+          <p class="eyebrow">NEXT EVIDENCE / WHAT WOULD STRENGTHEN THE CLAIM</p><h3>Make the proposal testable</h3>
+          <ul>
+            <li>Record versioned inputs, relevant state, policy scores, constraints, actions, and random state with explicit privacy controls.</li>
+            <li>Separate narrative randomness from dynamics; verify that changing the presentation leaves the action trajectory unchanged.</li>
+            <li>Link explanation claims to trace fields and reject unsupported additions from a language model.</li>
+            <li>Test whether both parties can revise an agreement or exit, whether boundaries hold under conflict, and whether cooperation benefits the user without harming others.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="glass-provenance">Source review: September 18, 2026. Links pin the reviewed revisions. These findings describe prototype mechanisms; the applications and symbiosis criteria above are proposals. <a href="glass-box-evidence.md">Read the evidence and verification notes</a>.</p>
     </section>
 
     <section class="section lab" id="lab" aria-labelledby="lab-title">

@@ -204,3 +204,23 @@ footer a:hover { color: var(--cyan); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Evidence-backed glass-box research note. */
+.glass-box { background: #10131b; }
+.glass-intro { max-width: 900px; color: #c8cad1; }
+.glass-box strong { color: #fff; }
+.glass-box code { color: var(--cyan); overflow-wrap: anywhere; }
+.glass-flow { list-style: none; padding: 0; margin: 2.5rem 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); }
+.glass-flow li { padding: 1.3rem; border: 1px solid var(--line); }
+.glass-flow span { display: block; margin-bottom: .6rem; color: var(--lime); font: .7rem var(--mono); }
+.glass-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.glass-card { min-width: 0; padding: clamp(1.25rem, 3vw, 2.5rem); border: 1px solid var(--line); background: #0b0e14; color: #c8cad1; }
+.glass-card h3, .symbiosis-note h3 { color: #fff; font-size: clamp(1.5rem, 2.5vw, 2.5rem); line-height: 1.15; }
+.glass-card a, .glass-provenance a { color: var(--cyan); text-decoration: underline; text-underline-offset: .2em; }
+.glass-card li + li { margin-top: .9rem; }
+.glass-card ul { padding-left: 1.25rem; }
+.symbiosis-note { max-width: 1000px; margin: 4rem 0; color: #c8cad1; }
+.symbiosis-note blockquote { color: #fff; font-size: clamp(1.2rem, 2vw, 1.7rem); }
+.glass-provenance { max-width: 950px; margin: 2rem 0 0; color: #a5a8b2; font-size: .85rem; }
+@media (max-width: 1000px) { .glass-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .glass-grid, .glass-flow { grid-template-columns: 1fr; } }
