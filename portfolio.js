@@ -270,6 +270,7 @@ document.querySelectorAll(".art-piece .art-link").forEach(link => {
     const frame = document.createElement("iframe");
     frame.className = "art-frame";
     frame.title = name;
+    frame.loading = card.hasAttribute("data-featured") ? "lazy" : "eager";
     frame.src = link.href;
     frame.allow = "autoplay; fullscreen";
     frame.allowFullscreen = true;
@@ -279,4 +280,5 @@ document.querySelectorAll(".art-piece .art-link").forEach(link => {
     play.setAttribute("aria-label", "Close " + name);
     play.setAttribute("aria-expanded", "true");
   });
+  if (card.hasAttribute("data-featured")) play.click();
 });
