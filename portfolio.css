@@ -229,9 +229,6 @@ footer a:hover { color: var(--cyan); }
 
 .art-archive { background: #f2f1ea; color: #0a0b10; }
 .art-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 3rem); }
-.art-piece { margin: 0; border-bottom: 1px solid #b7b6b1; }
-.art-piece img { display: block; width: 100%; height: auto; aspect-ratio: 11 / 7; object-fit: contain; background: #0b0e17; }
-.art-piece figcaption { padding: 1rem 0 1.4rem; }
 .art-piece h3, .journey h3 { font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.1; letter-spacing: -.035em; }
 .art-piece p, .journey p { margin: .65rem 0; }
 .art-piece a, .journey li a { display: inline-block; margin: .4rem 1rem .2rem 0; font-weight: 650; text-decoration: underline; text-underline-offset: .25em; }
@@ -251,3 +248,17 @@ footer a:hover { color: var(--cyan); }
   .lab { grid-template-columns: minmax(0, 1fr); }
   .section-heading { grid-template-columns: minmax(0, 1fr); overflow-wrap: anywhere; }
 }
+
+.art-piece { min-width: 0; padding: 1.3rem; border: 1px solid #d1cec3; background: #fffdf5; }
+.art-piece .art-link { font-size: .9rem; }
+.art-play {
+  padding: .65rem .9rem;
+  margin-right: 1rem;
+  background: #191128;
+  color: white;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+.art-piece.is-playing { grid-column: 1 / -1; }
+.art-frame { display: block; width: 100%; height: clamp(430px, 70vh, 820px); margin-top: 1rem; border: 0; background: #101018; }

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fractal Algebra Lab</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#0b131f;color:#e0f2fe}*{box-sizing:border-box}body{margin:0}canvas{position:fixed;inset:0;width:100%;height:100%;touch-action:none}header,nav,dialog{background:#0b131fee;border:1px solid #38bdf848;backdrop-filter:blur(8px)}header{position:fixed;top:16px;left:16px;right:16px;padding:12px;border-radius:8px;pointer-events:none}h1{font-size:16px;margin:0 0 6px;color:#38bdf8}#formula{font:12px monospace}nav{position:fixed;bottom:16px;left:16px;right:16px;display:flex;gap:8px;padding:10px;border-radius:8px;flex-wrap:wrap}button,a.download{font:inherit;color:#e0f2fe;border:1px solid #38bdf860;background:#122438;border-radius:6px;padding:9px 14px;cursor:pointer}button:hover,button[aria-pressed=true]{background:#23516a}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid #f43f5e;outline-offset:3px}#capture{border-color:#f43f5e}dialog{color:inherit;width:min(540px,calc(100% - 24px));max-height:85vh;border-radius:12px;padding:20px}dialog::backdrop{background:#0008}dialog h2{margin:0 0 16px;font-size:18px}.close{float:right}label{display:block;margin:14px 0;font-size:13px}label output{float:right;color:#10b981}input[type=range]{display:block;width:100%;margin-top:10px;accent-color:#38bdf8}select{width:100%;padding:8px;background:#122438;color:inherit}.presets{display:grid;grid-template-columns:1fr 1fr;gap:10px}.presets button{text-align:left;font-size:13px}#gallery-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}#gallery-list img{width:100%;border-radius:6px}figure{margin:0}figcaption{font-size:12px;padding:6px 0}.download{display:block;text-align:center;text-decoration:none}#message{position:fixed;bottom:110px;left:16px;background:#0b131fe8;padding:8px;border-radius:6px;font-size:13px}textarea{width:100%;height:40vh;background:#060b12;color:#7dd3fc}#hint{position:fixed;bottom:90px;right:16px;font-size:12px;background:#0b131fbb;padding:6px}small{color:#a5b8cd}@media(max-width:500px){nav{gap:4px}nav button{padding:8px;font-size:12px}#formula{font-size:10px}#hint{bottom:125px}.presets{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="fractal-canvas" aria-label="Interactive fractal viewport"></canvas>
+<header><h1>Fractal Algebra Lab · <span id="preset-name"></span></h1><div id="formula"></div></header>
+<div id="hint">Drag to shift origin · Wheel / pinch to zoom</div>
+<nav aria-label="Lab controls"><button data-open="tune">Tune</button><button data-open="rules">Rules</button><button id="morph" aria-pressed="true">Morph</button><button id="capture">Capture PNG</button><button data-open="gallery">Gallery</button><button id="code">Code</button><button id="reset">Reset origin</button></nav>
+<dialog id="tune"><button class="close" aria-label="Close tuning">✕</button><h2>Operator parameters</h2><div id="sliders"></div><label>Color palette<select id="palette"></select></label><small>These are algebra-inspired visual recurrences, not complete implementations of the named algebras.</small></dialog>
+<dialog id="rules"><button class="close" aria-label="Close rules">✕</button><h2>Algebraic rule sets</h2><div class="presets" id="presets"></div></dialog>
+<dialog id="gallery"><button class="close" aria-label="Close gallery">✕</button><h2>Snapshots this session</h2><p><small>Download images to keep them after closing the lab. The gallery holds the latest 12 captures.</small></p><div id="gallery-list"><p>No snapshots yet.</p></div></dialog>
+<dialog id="source"><button class="close" aria-label="Close source">✕</button><h2>Shader source</h2><textarea id="code-display" readonly aria-label="Fragment shader source"></textarea><small>Complete application source is beside this HTML file.</small></dialog>
+<div id="message" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gaussian Sobolev Manifold</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d17;color:#d8eeee;font:14px system-ui}
+canvas{display:block;width:100vw;height:100vh;touch-action:none}
+header{position:absolute;top:24px;left:28px;pointer-events:none}
+h1{font-size:22px;font-weight:400;letter-spacing:2px}
+p{color:#819bab}
+aside{position:absolute;right:20px;bottom:20px;width:230px;
+background:#142030ed;padding:20px;border:1px solid #314557;border-radius:16px}
+label{display:block;margin:12px 0;color:#aec5cc}
+input{width:100%;accent-color:#64e4cd}
+button{background:#263a4d;color:#d8eeee;border:0;padding:10px;
+border-radius:8px;cursor:pointer;margin:8px 4px 0 0}
+</style>
+<canvas id="canvas"></canvas>
+<header><h1>GAUSSIAN / SOBOLEV</h1>
+<p>Drag to orbit · Scroll to zoom</p></header>
+<aside>
+<label>Morph<input id="morph" type="range" min="0" max="1" step=".01" value=".35"></label>
+<label>Gaussian amplitude<input id="amp" type="range" min="0" max="1.5" step=".01" value=".65"></label>
+<label>Gaussian width<input id="width" type="range" min=".15" max="1.5" step=".01" value=".55"></label>
+<label>Sobolev smoothing<input id="smooth" type="range" min="0" max="2" step=".01" value=".4"></label>
+<label>Speed<input id="speed" type="range" min="0" max="2" step=".01" value=".7"></label>
+<button id="pause">Pause</button>
+<button id="auto">Auto morph</button>
+<button id="save">Save image</button>
+</aside>
+<script>
+"use strict";
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+const inputs=Object.fromEntries(
+ ["morph","amp","width","smooth","speed"].map(k=>[k,document.getElementById(k)])
+);
+let W,H,yaw=.5,pitch=.45,zoom=1,t=0,last=null,paused=false,auto=false,drag=null;
+const N=64,M=36,TAU=2*Math.PI;
+function resize(){
+ W=innerWidth;H=innerHeight;
+ const d=Math.min(devicePixelRatio||1,2);
+ canvas.width=W*d;canvas.height=H*d;
+ ctx.setTransform(d,0,0,d,0,0);
+}
+addEventListener("resize",resize);resize();
+canvas.onpointerdown=e=>{
+ drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId);
+};
+canvas.onpointermove=e=>{
+ if(!drag)return;
+ yaw+=(e.clientX-drag[0])*.008;
+ pitch=Math.max(-1.5,Math.min(1.5,pitch+(e.clientY-drag[1])*.008));
+ drag=[e.clientX,e.clientY];
+};
+canvas.onpointerup=canvas.onpointercancel=()=>drag=null;
+canvas.addEventListener("wheel",e=>{
+ e.preventDefault();
+ zoom=Math.max(.4,Math.min(2.5,zoom*Math.exp(-e.deltaY*.001)));
+},{passive:false});
+document.getElementById("pause").onclick=e=>{
+ paused=!paused;e.target.textContent=paused?"Resume":"Pause";
+};
+document.getElementById("auto").onclick=e=>{
+ auto=!auto;e.target.textContent=auto?"Auto: on":"Auto morph";
+};
+document.getElementById("save").onclick=()=>{
+ const a=document.createElement("a");
+ a.download="manifold.png";a.href=canvas.toDataURL();a.click();
+};
+function render(now){
+ const dt=last===null?0:Math.min((now-last)/1000,.05);last=now;
+ if(!paused)t+=dt*Number(inputs.speed.value);
+ if(auto&&!paused)inputs.morph.value=.5+.48*Math.sin(t*.4);
+ const morph=Number(inputs.morph.value),amp=Number(inputs.amp.value);
+ const width=Number(inputs.width.value),lambda=Number(inputs.smooth.value);
+ const modes=[];
+ // Periodic Gaussian Fourier coefficients, filtered by (I-lambda*Laplacian)^-1.
+ // This is H1 regularization on the periodic parameter domain.
+ let norm=0;
+ for(let k=-4;k<=4;k++)for(let l=-4;l<=4;l++){
+  const q=k*k+l*l;if(!q)continue;
+  const gaussian=Math.exp(-width*width*q/2);
+  norm+=gaussian;
+  modes.push([k,l,gaussian/(1+lambda*q)]);
+ }
+ const cy=Math.cos(yaw),sy=Math.sin(yaw);
+ const cp=Math.cos(pitch),sp=Math.sin(pitch);
+ const scale=Math.min(W,H)*.23*zoom;
+ const cx=W>700?W*.43:W*.5,points=[];
+ for(let i=0;i<=N;i++)for(let j=0;j<=M;j++){
+  const u=i/N*TAU,v=j/M*TAU;
+  let field=0;
+  for(const [k,l,a] of modes)
+   field+=a*Math.cos(k*(u-t*.6)+l*(v-t*.35));
+  field*=amp/norm;
+  const radius=1.15+.48*Math.cos(v);
+  let x=(1-morph)*radius*Math.cos(u)+morph*1.45*Math.sin(v)*Math.cos(u);
+  let y=(1-morph)*radius*Math.sin(u)+morph*1.45*Math.sin(v)*Math.sin(u);
+  let z=(1-morph)*.48*Math.sin(v)+morph*1.45*Math.cos(v);
+  x*=1+field;y*=1+field;z=z*(1+field)+field*.2;
+  const xx=x*cy-y*sy,yy=x*sy+y*cy;
+  const depth=yy*cp-z*sp,zz=yy*sp+z*cp;
+  const perspective=5/(5-depth);
+  points.push({
+   x:cx+xx*scale*perspective,
+   y:H*.46-zz*scale*perspective,
+   depth,field
+  });
+ }
+ ctx.fillStyle="#080d17";ctx.fillRect(0,0,W,H);
+ const glow=ctx.createRadialGradient(cx,H*.46,0,cx,H*.46,Math.min(W,H)*.6);
+ glow.addColorStop(0,"#143341");glow.addColorStop(1,"#080d17");
+ ctx.fillStyle=glow;ctx.fillRect(0,0,W,H);
+ const cells=[];
+ for(let i=0;i<N;i++)for(let j=0;j<M;j++){
+  const a=i*(M+1)+j,b=a+M+1;
+  cells.push([a,b,b+1,a+1]);
+ }
+ cells.sort((a,b)=>
+  a.reduce((s,i)=>s+points[i].depth,0)-
+  b.reduce((s,i)=>s+points[i].depth,0)
+ );
+ for(const cell of cells){
+  const p=cell.map(i=>points[i]);
+  const depth=p.reduce((s,q)=>s+q.depth,0)/4;
+  const field=p.reduce((s,q)=>s+q.field,0)/4;
+  const hue=175+field*140;
+  ctx.beginPath();
+  p.forEach((q,i)=>i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));
+  ctx.closePath();
+  ctx.fillStyle=`hsl(${hue} 45% ${10+(depth+2)*3}%)`;
+  ctx.fill();
+  ctx.strokeStyle=`hsla(${hue} 80% 65% / ${.25+(depth+2)*.12})`;
+  ctx.lineWidth=.6;ctx.stroke();
+ }
+ requestAnimationFrame(render);
+}
+requestAnimationFrame(render);
+</script>
+</html>

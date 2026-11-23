@@ -245,3 +245,38 @@
   setupField();
   renderPaths();
 })();
+
+document.querySelectorAll(".art-piece .art-link").forEach(link => {
+  const card = link.closest(".art-piece");
+  const name = card.querySelector("h3").textContent;
+  const play = document.createElement("button");
+  play.type = "button";
+  play.className = "art-play";
+  play.textContent = "Play here";
+  play.setAttribute("aria-label", "Play " + name + " here");
+  play.setAttribute("aria-expanded", "false");
+  link.before(play);
+
+  play.addEventListener("click", () => {
+    const openFrame = card.querySelector("iframe");
+    if (openFrame) {
+      openFrame.remove();
+      card.classList.remove("is-playing");
+      play.textContent = "Play here";
+      play.setAttribute("aria-label", "Play " + name + " here");
+      play.setAttribute("aria-expanded", "false");
+      return;
+    }
+    const frame = document.createElement("iframe");
+    frame.className = "art-frame";
+    frame.title = name;
+    frame.src = link.href;
+    frame.allow = "autoplay; fullscreen";
+    frame.allowFullscreen = true;
+    card.classList.add("is-playing");
+    card.append(frame);
+    play.textContent = "Close piece";
+    play.setAttribute("aria-label", "Close " + name);
+    play.setAttribute("aria-expanded", "true");
+  });
+});
