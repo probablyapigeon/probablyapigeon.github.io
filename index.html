@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kiersten Lynd builds inspectable experiments, adaptive agents, and mathematical instruments through XEMBRA and XC.">
+  <meta name="description" content="Kiersten Lynd&rsquo;s portfolio traces mathematical art, the Lonks, and XEMBRA through visual studies, simulations, and adaptive agents.">
   <meta name="theme-color" content="#07090d">
-  <title>Kiersten Lynd — XEMBRA, XC & living systems</title>
+  <title>Kiersten Lynd — Math Art, Lonks &amp; XEMBRA</title>
   <link rel="preconnect" href="https://avatars.githubusercontent.com">
   <link rel="stylesheet" href="portfolio.css">
 </head>
@@ -17,7 +17,9 @@
       <span>Kiersten Lynd</span>
     </a>
     <nav aria-label="Primary navigation">
-      <a href="#work">Work</a>
+      <a href="#math-art">Math art</a>
+      <a href="#journey">The story</a>
+      <a href="#work">Projects</a>
       <a href="#glass-box">Glass-box agents</a>
       <a href="#lab">Live lab</a>
       <a href="#about">About</a>
@@ -28,18 +30,13 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="signal" aria-hidden="true"></span> Independent systems researcher · creative technologist</p>
-        <h1 id="hero-title">I follow strange questions until they become <em>math,</em> <em>code,</em> and things you can touch.</h1>
-        <p class="hero-intro">I’m Kiersten—also <strong>probablyapigeon</strong>. I build inspectable experiments about memory, order, adaptation, agency, and meaning. My work lives between dynamical systems, experimental software, and luminous mathematical art.</p>
+        <p class="eyebrow">Kiersten Lynd &middot; probablyapigeon</p>
+        <h1 id="hero-title">The math art <em>learned</em> <em>to tick.</em></h1>
+        <p class="hero-intro">I drew fractal lattices, vector fireworks, and points pulled toward black holes. Then I gave their states names. This is how those pictures became the Lonks and XEMBRA.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#work">Explore the projects <span aria-hidden="true">↓</span></a>
-          <a class="button button-quiet" href="mailto:kierstenlynd@gmail.com">Say hello</a>
+          <a class="button button-primary" href="#math-art">See the art <span aria-hidden="true">&darr;</span></a>
+          <a class="button button-quiet" href="#journey">Read the story</a>
         </div>
-        <dl class="mini-stats" aria-label="Research principles">
-          <div><dt>01</dt><dd>Make state explicit</dd></div>
-          <div><dt>02</dt><dd>Test order effects</dd></div>
-          <div><dt>03</dt><dd>Keep claims falsifiable</dd></div>
-        </dl>
       </div>
 
       <div class="hero-instrument" aria-label="Interactive operator field">
@@ -79,10 +76,44 @@
       </div>
     </section>
 
-    <section class="ticker" aria-label="Areas of inquiry">
-      <div class="ticker-track">
-        <span>NON-COMMUTATIVITY</span><i>✦</i><span>MEMORY</span><i>✦</i><span>SEMANTIC COMPRESSION</span><i>✦</i><span>DYNAMICAL SYSTEMS</span><i>✦</i><span>INTERPRETABLE AGENTS</span><i>✦</i><span>GENERATIVE ART</span>
+    <section class="section art-archive" id="math-art" aria-labelledby="art-title">
+      <div class="section-heading">
+        <div><h2 id="art-title">Math art</h2></div>
+        <p>From fractal lattices to audio-driven geometry, these pieces make rules visible through shape, motion, and color.</p>
       </div>
+      <div class="art-grid">
+        <figure class="art-piece">
+          <img src="art/fractal-algebra.png" width="1100" height="700" loading="lazy" alt="A luminous fractal rendered in Fractal Algebra Lab">
+          <figcaption><h3>Fractal Algebra Lab</h3><p>Six algebra-inspired rules for iterating points, including a quaternion rotor and an SU(2) spinor field.</p></figcaption>
+        </figure>
+        <figure class="art-piece">
+          <img src="art/manifold.png" width="1100" height="700" loading="lazy" alt="A colored wireframe surface from the Gaussian and Sobolev study">
+          <figcaption><h3>Gaussian / Sobolev</h3><p>A surface shaped by a Gaussian and a smoothing operator, with controls for amplitude, width, and morphing.</p></figcaption>
+        </figure>
+        <figure class="art-piece">
+          <img src="art/three-body.webp" loading="lazy" alt="A frame from the three-body trajectory animation">
+          <figcaption><h3>Three-body trajectories</h3><p>A toy model that draws the paths of three interacting bodies.</p><a href="https://github.com/probablyapigeon/three_body_simulation">Watch the animation &nearr;</a></figcaption>
+        </figure>
+        <figure class="art-piece">
+          <img src="art/audio-phase-space.webp" loading="lazy" alt="A frame from the audio-reactive phase-space animation">
+          <figcaption><h3>Audio-reactive phase space</h3><p>Frequency bands extracted from sound drive matrix dynamics and reshape a 3D network.</p><a href="https://github.com/probablyapigeon/quantum_simulation">Explore the simulation &nearr;</a></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section journey" id="journey" aria-labelledby="journey-title">
+      <div class="section-heading">
+        <div><h2 id="journey-title">I never left the math art.</h2></div>
+        <p>The same ingredients keep showing up: &Psi; state vectors on a lattice, connections that carry influence, and a loop that feeds the last frame into the next.</p>
+      </div>
+      <ol class="journey-steps">
+        <li><h3>Math art</h3><p>Fractal lattices, vector fireworks, webs of &tau;<sub>ij</sub> connections, and a black-hole transform that pulled points toward a center. I was drawing the shape of a system before I started asking how it would change.</p></li>
+        <li><h3>Dynamics</h3><p>Fluid Observer, the tarot deck, black hole mode, and spinnet gave the pictures rules for what happens next. In the fuzzy tetrahedron study, turning a knob changes the geometry. The art learned to tick.</p></li>
+        <li><h3>Self-reference</h3><p>Spinnet&rsquo;s gates wrote down what they had verified in an append-only record. The system could keep a trace of its own decisions. That raised a question I kept coming back to: what evidence should a system leave when it changes itself?</p></li>
+        <li class="journey-hinge"><h3>When the states got names</h3><p>In the QT-1 / Wet TRON sketches, Xembra 1 and Aura brought sarcastic logic, absurd chaos, and black-hole puns into the same world. Once those states could affect one another, I needed to decide what each one remembered, what it could hear, and how it would change.</p><p>The Lonks gave those questions a society. They learn and share words, form relationships and colonies, and pass culture to their descendants.</p><a href="https://github.com/probablyapigeon/TheLonks">Explore The Lonks &nearr;</a> <a href="https://github.com/probablyapigeon/Lonk-Space">Visit Lonk-Space &nearr;</a> <a href="https://xembra-lonk-trajectory-lab.probablyapigeon.chatgpt.site/">Open the XEMBRA / Lonk Trajectory Lab &nearr;</a></li>
+        <li><h3>XEMBRA</h3><p>The lattice, the edges, and the Ouroboros loop are still there. In this sketch of the update rule, what an agent becomes next depends on its current state, its memory, and what comes in from another agent.</p><p class="journey-equation" aria-label="The next state of agent i is a function of its current state, memory, and input from agent j."><i>s</i><sub>i</sub>(<i>t</i> + 1) = <i>F</i><sub>i</sub>(<i>s</i><sub>i</sub>(<i>t</i>), <i>m</i><sub>i</sub>(<i>t</i>), <i>I</i><sub>j&rarr;i</sub>(<i>t</i>))</p><p>Live weight updates make the feedback literal. Gates and append-only records are how I try to keep those changes inspectable.</p><a href="https://github.com/probablyapigeon/connectedxembra">Read the XEMBRA architecture &nearr;</a></li>
+      </ol>
+      <p class="journey-ending">Frame N + 1 is drawn by frame N.</p>
     </section>
 
     <section class="section projects" id="work" aria-labelledby="work-title">

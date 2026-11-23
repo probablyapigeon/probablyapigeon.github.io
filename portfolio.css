@@ -226,3 +226,28 @@ footer a:hover { color: var(--cyan); }
 .glass-provenance { max-width: 950px; margin: 2rem 0 0; color: #a5a8b2; font-size: .85rem; }
 @media (max-width: 1000px) { .glass-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .glass-grid, .glass-flow { grid-template-columns: 1fr; } }
+
+.art-archive { background: #f2f1ea; color: #0a0b10; }
+.art-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 3rem); }
+.art-piece { margin: 0; border-bottom: 1px solid #b7b6b1; }
+.art-piece img { display: block; width: 100%; height: auto; aspect-ratio: 11 / 7; object-fit: contain; background: #0b0e17; }
+.art-piece figcaption { padding: 1rem 0 1.4rem; }
+.art-piece h3, .journey h3 { font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.1; letter-spacing: -.035em; }
+.art-piece p, .journey p { margin: .65rem 0; }
+.art-piece a, .journey li a { display: inline-block; margin: .4rem 1rem .2rem 0; font-weight: 650; text-decoration: underline; text-underline-offset: .25em; }
+.art-archive :focus-visible { outline-color: #451ab9; }
+.journey { background: #12101d; }
+.journey .section-heading > p, .journey li p { color: #d3cadd; }
+.journey-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.4rem, 3vw, 3rem); }
+.journey-steps li { padding: 1.3rem 0; border-top: 1px solid #625471; }
+.journey-steps li.journey-hinge { grid-column: 1 / -1; max-width: 760px; }
+.journey-steps li:last-child { grid-column: 1 / -1; max-width: 760px; }
+.journey-steps li a { color: var(--cyan); }
+.journey li .journey-equation { padding: .9rem 1rem; border-left: 2px solid var(--cyan); font: 1rem/1.6 var(--mono); overflow-wrap: anywhere; color: #fff; }
+.journey .journey-ending { margin-top: 2rem; font: 700 clamp(1.5rem, 4vw, 3.2rem)/1.1 var(--display); color: var(--pink); }
+@media (max-width: 760px) {
+  .art-grid, .journey-steps { grid-template-columns: 1fr; }
+  .about { overflow: hidden; }
+  .lab { grid-template-columns: minmax(0, 1fr); }
+  .section-heading { grid-template-columns: minmax(0, 1fr); overflow-wrap: anywhere; }
+}
