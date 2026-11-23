@@ -251,14 +251,17 @@ footer a:hover { color: var(--cyan); }
 
 .art-piece { min-width: 0; padding: 1.3rem; border: 1px solid #d1cec3; background: #fffdf5; }
 .art-piece .art-link { font-size: .9rem; }
-.art-play {
-  padding: .65rem .9rem;
-  margin-right: 1rem;
-  background: #191128;
-  color: white;
+.art-frame {
+  display: block;
+  width: 100%;
+  height: clamp(410px, 42vw, 620px);
+  margin: 1rem 0;
   border: 0;
-  font-weight: 700;
-  cursor: pointer;
+  background: #101018;
 }
-.art-piece.is-playing { grid-column: 1 / -1; }
-.art-frame { display: block; width: 100%; height: clamp(430px, 70vh, 820px); margin-top: 1rem; border: 0; background: #101018; }
+.art-piece:first-child { grid-column: 1 / -1; }
+.art-piece:first-child .art-frame { height: clamp(440px, 72vh, 780px); }
+@media (max-width: 760px) {
+  .art-piece { padding: .75rem; }
+  .art-frame, .art-piece:first-child .art-frame { height: clamp(400px, 67vh, 600px); }
+}
